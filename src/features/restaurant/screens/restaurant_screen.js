@@ -3,46 +3,36 @@ import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
 import MySearchBar from "../../../components/search_bar";
 import { RestaurantInfoCard } from "../components/restaurant_info_card";
+import styled from "styled-components/native"
+
+const RestaurantsContainer = styled.SafeAreaView`
+    flex: 1px;
+    backgroundColor: white;
+    paddingTop: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
+`;
+
+const SearchBarView = styled.View`
+    height: 60px;
+    padding: 10px;
+    alignItems: center;
+    justifyContent: center;
+`;
+
+const RestaurantCardView = styled.View`
+    padding: 10px;
+    flex: 1;
+    flexGrow: 1;
+`;
 
 export const RestaurantsScreen = () => (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+    <RestaurantsContainer>
+      <SearchBarView>
         <MySearchBar
             searchHolder={'Search here!'}
         />
-      </View>
-      <View style={styles.body}>
+      </SearchBarView>
+      <RestaurantCardView>
         <RestaurantInfoCard/>
-        <RestaurantInfoCard/>
-        <RestaurantInfoCard/>
-      </View>
-      <View style={styles.menu}>
-        <Text>MENU</Text>
-      </View>
-    </SafeAreaView>
+      </RestaurantCardView>
+    </RestaurantsContainer>
 )
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight  : 0,
-    },
-    header: {
-        height: 60,
-        padding: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    body: {
-        padding: 10,
-        flex: 1,
-        flexGrow: 1,
-    },
-    menu: {
-        flex: 1,
-        flexGrow: 0.1,
-        backgroundColor: '#148',
-    },
-  });
-  
