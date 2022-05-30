@@ -2,7 +2,7 @@ import react from "react";
 import { Searchbar } from "react-native-paper";
 import { StyleSheet } from "react-native";
 
-const MySearchBar = () => {
+const MySearchBar = ({searchHolder}) => {
     const [searchQuery, setSearchQuery] = react.useState('');
 
     const onChangeSearch = query => setSearchQuery(query);
@@ -10,7 +10,7 @@ const MySearchBar = () => {
     return (
         <Searchbar
             style={styles.searchBar}
-            placeholder={'Search'}
+            placeholder={searchHolder}
             onChangeText={onChangeSearch}
             value={searchQuery}
         />
