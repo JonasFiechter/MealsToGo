@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
 import { Card } from 'react-native-paper';
 import styled from 'styled-components/native'
 
@@ -10,7 +9,12 @@ const RestaurantCard = styled(Card)`
 const Title = styled.Text`
     padding: 10px; 
     align-self: center;
+    color: ${(props) => props.theme.colors.ui.error};
 `;
+
+const CardCover = styled(Card.Cover)`
+    padding: 20px;
+`
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
@@ -27,7 +31,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     } = restaurant;
 
     return <RestaurantCard>
-                <Card.Cover source={{ uri: photos[0] }} />
+                <CardCover sour
+                ce={{ uri: photos[0] }} />
                 <Title>{name}</Title>
             </RestaurantCard>
 

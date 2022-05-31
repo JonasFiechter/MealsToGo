@@ -1,6 +1,5 @@
 import react from "react";
 import { Searchbar } from "react-native-paper";
-import { StyleSheet } from "react-native";
 import styled from 'styled-components/native'
 
 const SearchBar = styled(Searchbar)`
