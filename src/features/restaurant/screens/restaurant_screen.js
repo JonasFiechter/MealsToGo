@@ -7,19 +7,19 @@ import styled from "styled-components/native"
 
 const RestaurantsContainer = styled.SafeAreaView`
     flex: 1px;
-    backgroundColor: white;
+    backgroundColor: ${(props) => props.theme.colors.bg.primary};
     paddingTop: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
 `;
 
 const SearchBarView = styled.View`
-    height: 60px;
-    padding: 10px;
+    height: ${(props) => props.theme.sizes[3]};
+    padding: ${(props) => props.theme.space[2]};
     alignItems: center;
     justifyContent: center;
 `;
 
 const RestaurantCardView = styled.View`
-    padding: 10px;
+    padding: ${(props) => props.theme.space[2]};
     flex: 1;
     flexGrow: 1;
 `;
