@@ -8,6 +8,7 @@ const RestaurantCard = styled(Card)`
 `;
 
 const Title = styled.Text`
+    font-family: ${(props) => props.theme.fonts.body};
     padding: ${(props) => props.theme.space[2]}; 
     align-self: center;
     color: ${(props) => props.theme.colors.ui.error};
