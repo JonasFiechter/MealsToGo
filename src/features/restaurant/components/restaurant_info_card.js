@@ -4,6 +4,8 @@ import styled from 'styled-components/native'
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star'
 import open from '../../../../assets/open'
+import { Spacer } from '../../../components/spacer/spacerComponent';
+import { View } from 'react-native';
 
 const RestaurantCard = styled(Card)`
     margin-bottom: ${(props) => props.theme.space[0]};
@@ -66,8 +68,11 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                     <Title>{name}</Title>
                         <RatingView>
                             <Rating>
-                                {ratingArray.map(() => 
-                                    <SvgXml xml={star} width={20} height={20}/>
+                                {ratingArray.map(() =>
+                                        <View>
+                                            <SvgXml xml={star} width={20} height={20}/>
+                                            <Spacer variant={'left.large'}/>
+                                        </View>
                                 )
                             }
                             </Rating>

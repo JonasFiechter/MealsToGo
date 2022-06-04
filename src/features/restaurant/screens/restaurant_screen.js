@@ -28,7 +28,7 @@ export const RestaurantsScreen = () => (
     <RestaurantsContainer>
       <SearchBarView>
         <MySearchBar
-            searchHolder={'Search here!'}
+            searchHolder={'Search where you are!'}
         />
       </SearchBarView>
       <RestaurantCardView>
