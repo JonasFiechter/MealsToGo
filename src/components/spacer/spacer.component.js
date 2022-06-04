@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import styled from 'styled-components/native'
 
 const TopSmall = styled.View`
-    marginTop: 4px;
+    marginTop: ${(props)=> props.theme.space[1]};
 `;
 
 const TopMedium = styled.View`

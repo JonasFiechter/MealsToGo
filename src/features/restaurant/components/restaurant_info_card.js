@@ -9,7 +9,6 @@ const RestaurantCard = styled(Card)`
     margin-bottom: ${(props) => props.theme.space[0]};
 `;
 
-
 const Info = styled.View`
     padding: ${(props) => props.theme.space[2]};
 `;
@@ -34,7 +33,7 @@ const RatingView = styled.View`
 `;
 
 const Rating = styled.View`
-    padding-top: ${(props) => props.theme.space[1]};    
+    padding-top: ${(props) => props.theme.space[1]};
     flex-direction: row;
 `;
 
@@ -42,6 +41,10 @@ const CardCover = styled(Card.Cover)`
     padding: ${(props) => props.theme.space[0]};
 `;
 
+const ClosedTempText = styled.Text`
+    font-family: ${(props) => props.theme.fonts.body};
+    color: ${(props) => props.theme.colors.ui.secondary};
+`;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
@@ -51,15 +54,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         photos = ['https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?cs=srgb&dl=pexels-daria-shevtsova-704569.jpg&fm=jpg'],
         address = 'Hannibal st. 399 - Brooklin',
         isOpenNow = true,
-        rating = 4,
+        rating = 5,
         isTemporarlyClosed = true
     } = restaurant;
 
     const ratingArray = Array.from(new Array(Math.ceil(rating)));
 
     return <RestaurantCard>
-                <CardCover sour
-                ce={{ uri: photos[0] }} />
+                <CardCover source={{ uri: photos[0] }} />
                 <Info>
                     <Title>{name}</Title>
                         <RatingView>
@@ -69,8 +71,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                                 )
                             }
                             </Rating>
+                            {isTemporarlyClosed ? <ClosedTempText>Temporarly closed</ClosedTempText> : null}
                             {isOpenNow ? <SvgXml xml={open} width={20} height={20}/> : null}
-                            {isTemporarlyClosed ? <Text>Temporarly closed</Text> : null}
                         </RatingView>
                     <Address>{address}</Address>
                 </Info>
