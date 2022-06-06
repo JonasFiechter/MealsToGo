@@ -2,8 +2,8 @@ import React from 'react';
 import { Card, Text } from 'react-native-paper';
 import styled from 'styled-components/native'
 import { SvgXml } from 'react-native-svg';
-import star from '../../../../assets/star'
-import open from '../../../../assets/open'
+import star from '../../../../assets/star';
+import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer/spacerComponent';
 import { View } from 'react-native';
 
@@ -49,7 +49,6 @@ const ClosedTempText = styled.Text`
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
-
     const {
         name = 'ChefRestaurant',
         icon,
@@ -71,12 +70,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                                 {ratingArray.map(() =>
                                         <View>
                                             <SvgXml xml={star} width={20} height={20}/>
-                                            <Spacer variant={'left.large'}/>
                                         </View>
                                 )
                             }
                             </Rating>
-                            {isTemporarlyClosed ? <ClosedTempText>Temporarly closed</ClosedTempText> : null}
+                            {isTemporarlyClosed ? 
+                                                <ClosedTempText>
+                                                    Temporarly closed
+                                                </ClosedTempText> : null}
                             {isOpenNow ? <SvgXml xml={open} width={20} height={20}/> : null}
                         </RatingView>
                     <Address>{address}</Address>
