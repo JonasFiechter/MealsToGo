@@ -1,51 +1,16 @@
 import React from 'react';
-import { Card, Text } from 'react-native-paper';
+import { Card } from 'react-native-paper';
 import styled from 'styled-components/native'
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer/spacerComponent';
+import { Text } from '../../../components/typography/textComponent';
 import { View } from 'react-native';
+import { CardCover, Address, Info, Rating, RatingView } from './restaurant-info-card-styles';
 
 const RestaurantCard = styled(Card)`
     margin-bottom: ${(props) => props.theme.space[0]};
-`;
-
-const Info = styled.View`
-    padding: ${(props) => props.theme.space[2]};
-`;
-
-const Address = styled.Text`
-    font-family: ${(props) => props.theme.fonts.body};
-    font-size: ${(props) => props.theme.fontSizes.button};
-    padding: ${(props) => props.theme.space[0]}; 
-    color: ${(props) => props.theme.colors.text.secondary};
-`;
-
-const Title = styled.Text`
-    font-family: ${(props) => props.theme.fonts.heading};
-    font-size: ${(props) => props.theme.fontSizes.body};
-    padding: ${(props) => props.theme.space[0]}; 
-    color: ${(props) => props.theme.colors.text.primary};
-`;
-
-const RatingView = styled.View`
-    flex-direction: row;
-    justify-content: space-between;
-`;
-
-const Rating = styled.View`
-    padding-top: ${(props) => props.theme.space[1]};
-    flex-direction: row;
-`;
-
-const CardCover = styled(Card.Cover)`
-    padding: ${(props) => props.theme.space[0]};
-`;
-
-const ClosedTempText = styled.Text`
-    font-family: ${(props) => props.theme.fonts.body};
-    color: ${(props) => props.theme.colors.ui.secondary};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -64,7 +29,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     return <RestaurantCard>
                 <CardCover source={{ uri: photos[0] }} />
                 <Info>
-                    <Title>{name}</Title>
+                    <Text variant="title">{name}</Text>
                         <RatingView>
                             <Rating>
                                 {ratingArray.map(() =>
@@ -75,9 +40,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                             }
                             </Rating>
                             {isTemporarlyClosed ? 
-                                                <ClosedTempText>
-                                                    Temporarly closed
-                                                </ClosedTempText> : null}
+                                            <Text variant="error">Temporarly closed</Text> : null}
                             {isOpenNow ? <SvgXml xml={open} width={20} height={20}/> : null}
                         </RatingView>
                     <Address>{address}</Address>
