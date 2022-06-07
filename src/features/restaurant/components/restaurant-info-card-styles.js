@@ -2,6 +2,10 @@ import styled from 'styled-components/native';
 import { Card } from 'react-native-paper';
 
 
+export const RestaurantCard = styled(Card)`
+    margin-bottom: ${(props) => props.theme.space[0]};
+`;
+
 export const CardCover = styled(Card.Cover)`
     padding: ${(props) => props.theme.space[0]};
 `;
@@ -15,13 +19,6 @@ export const Address = styled.Text`
     font-size: ${(props) => props.theme.fontSizes.button};
     padding: ${(props) => props.theme.space[0]}; 
     color: ${(props) => props.theme.colors.text.secondary};
-`;
-
-export const Title = styled.Text`
-    font-family: ${(props) => props.theme.fonts.heading};
-    font-size: ${(props) => props.theme.fontSizes.body};
-    padding: ${(props) => props.theme.space[0]}; 
-    color: ${(props) => props.theme.colors.text.primary};
 `;
 
 export const RatingView = styled.View`

@@ -7,11 +7,10 @@ import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer/spacerComponent';
 import { Text } from '../../../components/typography/textComponent';
 import { View } from 'react-native';
-import { CardCover, Address, Info, Rating, RatingView } from './restaurant-info-card-styles';
+import { 
+    CardCover, Address, Info, Rating, RatingView, RestaurantCard 
+} from './restaurant-info-card-styles';
 
-const RestaurantCard = styled(Card)`
-    margin-bottom: ${(props) => props.theme.space[0]};
-`;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const {
