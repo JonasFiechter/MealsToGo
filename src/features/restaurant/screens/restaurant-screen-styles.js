@@ -1,9 +1,9 @@
 import styled from "styled-components/native";
-import { Platform, StatusBar } from 'react-native';
+import { Platform, StatusBar, SafeAreaView } from 'react-native';
 
 
-export const RestaurantsContainer = styled.SafeAreaView`
-    flex: 1px;
+export const RestaurantsContainer = styled(SafeAreaView)`
+    flex: 1;
     backgroundColor: ${(props) => props.theme.colors.bg.primary};
     paddingTop: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
 `;

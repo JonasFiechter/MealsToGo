@@ -18,10 +18,10 @@ export const RestaurantsScreen = () => (
 		</SearchBarView>
 		<RestaurantCardView>
 			<FlatList
-			data={[{name: 1}, {name: 2}, {name: 3}]}
-			renderItem={() => <RestaurantInfoCard/>}
-			keyExtractor={(item) => item.name}
-			contentContainerStyle={{padding: 6}}
+				data={[{name: 1}, {name: 2}, {name: 3}]}
+				renderItem={() => <RestaurantInfoCard/>}
+				keyExtractor={(item) => item.name}
+				contentContainerStyle={{paddingBottom: 1}}
 			/> 
 		</RestaurantCardView>
 		</RestaurantsContainer>
