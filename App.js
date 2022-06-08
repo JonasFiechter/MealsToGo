@@ -1,5 +1,5 @@
 import React from 'react';
-import { RestaurantsScreen } from './src/features/restaurant/screens/restaurant_screen.js';
+import { RestaurantsScreen } from './src/features/restaurant/screens/restaurant-screen.js';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infraestructure/theme/index.js';
 import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/oswald';
