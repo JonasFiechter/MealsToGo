@@ -4,6 +4,10 @@ import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infraestructure/theme/index.js';
 import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Stack = createBottomTabNavigator();
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -20,7 +24,25 @@ export default function App() {
 
   return (
       <ThemeProvider theme={theme}>
-        <RestaurantsScreen/>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name='Restaurant'
+              component={RestaurantsScreen}
+              options={{title:'Restaurants'}}
+            />
+            <Stack.Screen
+              name='Map'
+              component={RestaurantsScreen}
+              options={{title:'Restaurants'}}
+            />
+            <Stack.Screen
+              name='Config'
+              component={RestaurantsScreen}
+              options={{title:'Restaurants'}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </ThemeProvider>
   );
 }
