@@ -24,5 +24,5 @@ export const RestaurantsScreen = () => (
 				contentContainerStyle={{paddingBottom: 1}}
 			/> 
 		</RestaurantCardView>
-		</RestaurantsContainer>
+	</RestaurantsContainer>
 )
