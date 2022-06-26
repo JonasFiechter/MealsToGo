@@ -1,5 +1,6 @@
 import React from 'react';
 import { RestaurantsScreen } from './src/features/restaurant/screens/restaurant-screen.js';
+import { SettingsScreen } from './src/features/settings/screens/settings-screen.js';
 import { MapScreen } from './src/features/map/screens/map-screen.js';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infraestructure/theme/index.js';
@@ -39,8 +40,8 @@ export default function App() {
             />
             <Stack.Screen
               name='Config'
-              component={RestaurantsScreen}
-              options={{title:'Restaurants'}}
+              component={SettingsScreen}
+              options={{title:'Settings'}}
             />
           </Stack.Navigator>
         </NavigationContainer>
