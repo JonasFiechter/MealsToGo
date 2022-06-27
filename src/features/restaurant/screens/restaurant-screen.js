@@ -7,22 +7,24 @@ import {
   RestaurantsContainer, 
   SearchBarView 
 } from "./restaurant-screen-styles.js"
-
+import { SafeArea } from "../../../components/utility/safe-area.component"
 
 export const RestaurantsScreen = () => (
-    <RestaurantsContainer>
-		<SearchBarView>
-			<MySearchBar
-				searchHolder={'Search where you are!'}
-			/>
-		</SearchBarView>
-		<RestaurantCardView>
-			<FlatList
-				data={[{name: 1}, {name: 2}, {name: 3}]}
-				renderItem={() => <RestaurantInfoCard/>}
-				keyExtractor={(item) => item.name}
-				contentContainerStyle={{paddingBottom: 1}}
-			/> 
-		</RestaurantCardView>
-	</RestaurantsContainer>
+	<SafeArea>
+		<RestaurantsContainer>
+			<SearchBarView>
+				<MySearchBar
+					searchHolder={'Search where you are!'}
+				/>
+			</SearchBarView>
+			<RestaurantCardView>
+				<FlatList
+					data={[{name: 1}, {name: 2}, {name: 3}]}
+					renderItem={() => <RestaurantInfoCard/>}
+					keyExtractor={(item) => item.name}
+					contentContainerStyle={{paddingBottom: 1}}
+				/> 
+			</RestaurantCardView>
+		</RestaurantsContainer>
+	</SafeArea>
 )
