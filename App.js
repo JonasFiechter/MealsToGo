@@ -8,8 +8,9 @@ import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/osw
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar.js';
 
-const Stack = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -25,26 +26,29 @@ export default function App() {
   }
 
   return (
+    <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
+          <Tab.Navigator>
+            <Tab.Screen
               name='Restaurant'
               component={RestaurantsScreen}
-              options={{title:'Restaurants'}}
+              options={{headerShown: false}}
             />
-            <Stack.Screen
+            <Tab.Screen
               name='Map'
               component={MapScreen}
-              options={{title:'Map'}}
+              options={{headerShown: false}}
             />
-            <Stack.Screen
+            <Tab.Screen
               name='Config'
               component={SettingsScreen}
-              options={{title:'Settings'}}
+              options={{headerShown: false}}
             />
-          </Stack.Navigator>
+          </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
+      <ExpoStatusBar style='auto'/>
+    </>
   );
 }
