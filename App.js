@@ -11,7 +11,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
