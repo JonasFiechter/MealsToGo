@@ -9,8 +9,18 @@ import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar.js';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 const Tab = createBottomTabNavigator();
+
+const TAB_ICON = {
+  Restaurants: "md-restaurant",
+  Map: "md-earth",
+  Settings: "md-settings"
+}
+
+const screenOptions = ({ route }) => {}
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -29,9 +39,28 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ color, size }) => {
+                let iconName;
+    
+                if (route.name === 'Restaurants') {
+                  iconName = "md-restaurant";
+                } else if (route.name === 'Settings') {
+                  iconName = "md-settings";
+                } else if (route.name === 'Map') {
+                  iconName = "md-earth";
+                }
+    
+                // You can return any component that you like here!
+                return <Ionicons name={iconName} size={size} color={color} />;
+              },
+              tabBarActiveTintColor: 'tomato',
+              tabBarInactiveTintColor: 'gray',
+            })}
+          >
             <Tab.Screen
-              name='Restaurant'
+              name='Restaurants'
               component={RestaurantsScreen}
               options={{headerShown: false}}
             />
@@ -41,7 +70,7 @@ export default function App() {
               options={{headerShown: false}}
             />
             <Tab.Screen
-              name='Config'
+              name='Settings'
               component={SettingsScreen}
               options={{headerShown: false}}
             />
