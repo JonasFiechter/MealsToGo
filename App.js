@@ -10,10 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { restaurantRequest } from './src/services/restaurants/restaurant.services.js';
-import { RestaurantsContextProvider } from './src/services/restaurants/restaurant.context';
-
-restaurantRequest()
+import { restaurantsRequest } from './src/services/restaurants/restaurants.services.js';
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context';
 
 var Tab = createBottomTabNavigator();
 

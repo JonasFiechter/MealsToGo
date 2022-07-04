@@ -8,11 +8,10 @@ import {
   SearchBarView 
 } from "./restaurant-screen-styles.js"
 import { SafeArea } from "../../../components/utility/safe-area.component"
-import { RestaurantsContext } from "../../../services/restaurants/restaurant.context";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 export const RestaurantsScreen = () => {
-	const restaurantContext = useContext(RestaurantsContext)
-	console.log(restaurantContext)
+	const { isLoading, error, restaurants } = useContext(RestaurantsContext)
 	return (<SafeArea>
 		<RestaurantsContainer>
 			<SearchBarView>
@@ -22,8 +21,12 @@ export const RestaurantsScreen = () => {
 			</SearchBarView>
 			<RestaurantCardView>
 				<FlatList
-					data={restaurantContext.restaurants}
-					renderItem={() => <RestaurantInfoCard/>}
+					data={restaurants}
+					renderItem={({item}) => {
+						return (
+							<RestaurantInfoCard restaurant={item}/>
+						)
+					}}
 					keyExtractor={(item) => item.name}
 					contentContainerStyle={{paddingBottom: 1}}
 				/> 

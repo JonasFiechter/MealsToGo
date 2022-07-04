@@ -10,18 +10,19 @@ import {
 } from './restaurant-info-card-styles';
 
 
-export const RestaurantInfoCard = ({ restaurant = {} }) => {
+export const RestaurantInfoCard = ({ restaurant = {}}) => {
     const {
         name = 'ChefRestaurant',
         icon,
         photos = ['https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?cs=srgb&dl=pexels-daria-shevtsova-704569.jpg&fm=jpg'],
         address = 'Hannibal st. 399 - Brooklin',
         isOpenNow = true,
-        rating = 5,
+        rating,
         isTemporarlyClosed = true
     } = restaurant;
 
-    const ratingArray = Array.from(new Array(Math.ceil(rating)));
+    const ratingArray = Array.from(new Array(Math.floor(rating)));
+    console.log(photos[0])
 
     return <RestaurantCard>
                 <CardCover source={{ uri: photos[0] }} />
