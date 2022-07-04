@@ -10,14 +10,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { restaurantRequest } from './src/services/restaurants/restaurant.services.js';
 
-const Tab = createBottomTabNavigator();
+restaurantRequest()
+
+var Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
   Restaurants: "md-restaurant",
   Map: "md-earth",
   Settings: "md-settings"
-}
+};
 
 
 const createScreenOptions = ({ route }) => {
@@ -31,8 +34,8 @@ const createScreenOptions = ({ route }) => {
     ),
     tabBarActiveTintColor: 'tomato',
     tabBarInactiveTintColor: 'gray'
-  }
-}
+  };
+};
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -75,4 +78,4 @@ export default function App() {
       <ExpoStatusBar style='auto'/>
     </>
   );
-}
+};
