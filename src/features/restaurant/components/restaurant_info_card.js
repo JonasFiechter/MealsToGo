@@ -22,7 +22,6 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
     } = restaurant;
 
     const ratingArray = Array.from(new Array(Math.floor(rating)));
-    console.log(photos[0])
 
     return <RestaurantCard>
                 <CardCover source={{ uri: photos[0] }} />
