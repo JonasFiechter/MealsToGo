@@ -17,17 +17,17 @@ export const RestaurantsScreen = () => {
 	console.log(isLoading)
 	return (
 	<SafeArea>
-		{isLoading && (
-			<View style={{ position: 'absolute', top: '50%', left: '50%'}}>
-				<ActivityIndicator 
-					size={50}
-					style={{ marginLeft: -25 }}
-					animating={true}
-					color={Colors.blue300}
-				/>
-			</View>
-		)}
 		<RestaurantsContainer>
+			{isLoading && (
+				<View style={{ position: 'absolute', top: '50%', left: '50%'}}>
+					<ActivityIndicator 
+						size={50}
+						style={{ marginLeft: -25 }}
+						animating={true}
+						color={Colors.blue300}
+					/>
+				</View>
+			)}
 			<SearchBarView>
 				<MySearchBar
 					searchHolder={'Search where you are!'}
